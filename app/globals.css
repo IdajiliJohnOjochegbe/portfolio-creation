@@ -1,0 +1,167 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Professional tech portfolio color scheme - Navy Blue & Cyan */
+  --background: #f8f9fa; /* Light gray background */
+  --foreground: #1a1a1a; /* Dark gray text for readability */
+  --card: #ffffff; /* White cards */
+  --card-foreground: #1a1a1a; /* Dark gray card text */
+  --popover: #ffffff;
+  --popover-foreground: #1a1a1a;
+  --primary: #0a192f; /* Deep Navy Blue primary */
+  --primary-foreground: #ffffff; /* White text on navy */
+  --secondary: #eceff1; /* Off-white secondary */
+  --secondary-foreground: #1a1a1a;
+  --muted: #f5f5f5; /* Light muted background */
+  --muted-foreground: #6b7280; /* Medium gray muted text */
+  --accent: #64ffda; /* Cyan/Turquoise accent */
+  --accent-foreground: #0a192f; /* Navy text on cyan */
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e5e7eb; /* Light gray border */
+  --input: #f9fafb; /* Very light gray input */
+  --ring: #64ffda; /* Cyan focus ring */
+  --chart-1: #0a192f; /* Navy Blue */
+  --chart-2: #64ffda; /* Cyan */
+  --chart-3: #3b82f6; /* Blue */
+  --chart-4: #10b981; /* Emerald */
+  --chart-5: #8b5cf6; /* Purple */
+  --radius: 0.625rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1a1a1a;
+  --sidebar-primary: #0a192f;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f8f9fa;
+  --sidebar-accent-foreground: #1a1a1a;
+  --sidebar-border: #e5e7eb;
+  --sidebar-ring: #64ffda;
+}
+
+.dark {
+  /* Dark mode with navy background and cyan accents */
+  --background: #0a192f; /* Deep Navy Blue background */
+  --foreground: #f8f9fa; /* Light gray text */
+  --card: #112240; /* Slightly lighter navy cards */
+  --card-foreground: #f8f9fa;
+  --popover: #112240;
+  --popover-foreground: #f8f9fa;
+  --primary: #64ffda; /* Cyan primary in dark mode */
+  --primary-foreground: #0a192f; /* Navy text on cyan */
+  --secondary: #1e293b; /* Dark slate secondary */
+  --secondary-foreground: #f8f9fa;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --accent: #64ffda;
+  --accent-foreground: #0a192f;
+  --destructive: #ef4444;
+  --destructive-foreground: #f8f9fa;
+  --border: #1e293b;
+  --input: #1e293b;
+  --ring: #64ffda;
+  --chart-1: #64ffda; /* Cyan */
+  --chart-2: #0a192f; /* Navy */
+  --chart-3: #3b82f6; /* Blue */
+  --chart-4: #10b981; /* Emerald */
+  --chart-5: #8b5cf6; /* Purple */
+  --sidebar: #0a192f;
+  --sidebar-foreground: #f8f9fa;
+  --sidebar-primary: #64ffda;
+  --sidebar-primary-foreground: #0a192f;
+  --sidebar-accent: #112240;
+  --sidebar-accent-foreground: #f8f9fa;
+  --sidebar-border: #1e293b;
+  --sidebar-ring: #64ffda;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Enhanced scrolling and custom scrollbar for professional theme */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Made scrollbar more visible and improved styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted) / 0.3);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.5);
+    border-radius: 4px;
+    border: 1px solid hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.7);
+  }
+
+  /* For Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--primary) / 0.5) hsl(var(--muted) / 0.3);
+  }
+
+  /* Professional gradient background */
+  .gradient-bg {
+    background: linear-gradient(135deg, #f8f9fa 0%, #eceff1 100%);
+  }
+
+  .dark .gradient-bg {
+    background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+  }
+}
