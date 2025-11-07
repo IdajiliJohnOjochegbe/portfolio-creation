@@ -94,7 +94,7 @@ export function Hero() {
               <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent rounded-full"></div>
               <div className="absolute inset-0 rounded-full shadow-[0_0_30px_rgba(6,182,212,0.3)] animate-pulse"></div>
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/Idajili%20John%20Ojochegbe%27s%20Headshot%20Photo.jpg%281%29%281%29-JCQfB8z9jgbPur72k8Nuns37KYNXUc.jpeg"
+                src="/images/design-mode/Idajili%20John%20Ojochegbe%27s%20Headshot%20Photo.jpg%281%29%281%29%281%29%281%29.jpeg"
                 alt="John - Professional Headshot"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-300"
@@ -134,7 +134,7 @@ export function Hero() {
                 asChild
               >
                 <a
-                  href="https://drive.google.com/file/d/11QbdmE0RdIvSyglJ1zz9CdRPcLcPLDac/view?usp=sharing"
+                  href="https://drive.google.com/file/d/1ua1S-HQ6rkd-iJW7t3W0izCT0Q8ZAVY_/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -146,7 +146,7 @@ export function Hero() {
 
             <div className="flex items-center justify-center lg:justify-start space-x-6">
               <a
-                href="https://github.com/IdajiliJohnOjochegbe/IdajiliJohnOjochegbe"
+                href="https://github.com/IdajiliJohnOjochegbe"
                 className="text-muted-foreground hover:text-accent transition-colors duration-300 hover:scale-110 transform"
                 aria-label="Github"
                 target="_blank"

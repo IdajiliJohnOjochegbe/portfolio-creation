@@ -1,14 +1,15 @@
 "use client"
 
+import type React from "react"
+
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import ReactMarkdown from "react-markdown"
 
 interface BlogPostProps {
   post: {
     title: string
-    content: string
+    content: React.ReactNode
     date: string
     readTime: string
     tags: string[]
@@ -45,32 +46,7 @@ export function BlogPost({ post }: BlogPostProps) {
         </div>
       </div>
 
-      <div className="prose prose-lg max-w-none dark:prose-invert">
-        <ReactMarkdown
-          components={{
-            h1: ({ children }) => <h1 className="text-3xl font-bold text-foreground mb-6 mt-8">{children}</h1>,
-            h2: ({ children }) => <h2 className="text-2xl font-semibold text-foreground mb-4 mt-8">{children}</h2>,
-            h3: ({ children }) => <h3 className="text-xl font-semibold text-foreground mb-3 mt-6">{children}</h3>,
-            p: ({ children }) => <p className="text-muted-foreground mb-4 leading-relaxed">{children}</p>,
-            ul: ({ children }) => <ul className="text-muted-foreground mb-4 space-y-2">{children}</ul>,
-            li: ({ children }) => (
-              <li className="flex items-start gap-2">
-                <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>
-                <span>{children}</span>
-              </li>
-            ),
-            strong: ({ children }) => <strong className="font-semibold text-foreground">{children}</strong>,
-            code: ({ children }) => <code className="bg-muted px-2 py-1 rounded text-sm font-mono">{children}</code>,
-            blockquote: ({ children }) => (
-              <blockquote className="border-l-4 border-primary pl-4 italic text-muted-foreground my-6">
-                {children}
-              </blockquote>
-            ),
-          }}
-        >
-          {post.content}
-        </ReactMarkdown>
-      </div>
+      <div className="prose prose-lg max-w-none dark:prose-invert">{post.content}</div>
 
       <div className="mt-12 pt-8 border-t border-border">
         <div className="flex items-center justify-between">

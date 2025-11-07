@@ -1,188 +1,122 @@
 "use client"
 
+import { useRef } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const specializations = [
   {
     title: "Large Language Models (LLMs)",
-    description: "Advanced expertise in working with state-of-the-art language models, fine-tuning, and deployment.",
+    description: "Advanced expertise in fine-tuning, deployment, and LLM systems.",
     icon: "🤖",
-    skills: [
-      "GPT-4/GPT-3.5 Integration",
-      "Claude & Anthropic Models",
-      "Open Source LLMs (Llama, Mistral)",
-      "Fine-tuning & PEFT",
-      "Prompt Engineering",
-      "RAG Systems",
-      "Vector Databases",
-      "Model Optimization",
-    ],
-    projects: ["Custom ChatBot with RAG", "Legal Document Analyzer", "Multi-Agent Content Generation"],
+    skills: ["GPT", "Claude", "RAG", "Prompt Engineering"]
   },
   {
     title: "Agentic AI Systems",
-    description: "Building autonomous AI agents that can reason, plan, and execute complex tasks independently.",
+    description: "Designing autonomous multi-agent workflows and orchestration.",
     icon: "🧠",
-    skills: [
-      "Multi-Agent Frameworks",
-      "AutoGen & CrewAI",
-      "Agent Orchestration",
-      "Tool Integration",
-      "Reasoning & Planning",
-      "Memory Systems",
-      "Agent Communication",
-      "Workflow Automation",
-    ],
-    projects: ["Research Assistant Agent", "Code Review Automation", "Customer Service Agent"],
+    skills: ["CrewAI", "AutoGen", "Planning", "Tool Use"]
   },
   {
     title: "Deep Learning & Neural Networks",
-    description: "Comprehensive knowledge of deep learning architectures and their applications across domains.",
+    description: "Transformers, CNNs, GANs, and sequence models.",
     icon: "🔬",
-    skills: [
-      "Transformer Architecture",
-      "CNNs & Computer Vision",
-      "RNNs & Sequence Modeling",
-      "GANs & Generative Models",
-      "Attention Mechanisms",
-      "Transfer Learning",
-      "Model Architecture Design",
-      "Hyperparameter Optimization",
-    ],
-    projects: ["Image Classification Systems", "Time Series Forecasting", "Generative Art Models"],
+    skills: ["Transformers", "CNNs", "GANs", "Optimization"]
   },
   {
     title: "Natural Language Processing",
-    description:
-      "Expert-level NLP capabilities spanning from traditional methods to modern transformer-based approaches.",
+    description: "Modern NLP tasks with transformer-based architectures.",
     icon: "💬",
-    skills: [
-      "Text Classification",
-      "Named Entity Recognition",
-      "Sentiment Analysis",
-      "Text Summarization",
-      "Question Answering",
-      "Language Translation",
-      "Text Generation",
-      "Information Extraction",
-    ],
-    projects: ["Sentiment Analysis Dashboard", "Document Summarization Tool", "Multilingual Chatbot"],
+    skills: ["NER", "Text Gen", "Summarization", "QA Systems"]
   },
   {
     title: "Computer Vision",
-    description: "Advanced computer vision techniques for image and video analysis, object detection, and recognition.",
+    description: "Image modeling, detection, and document AI pipelines.",
     icon: "👁️",
-    skills: [
-      "Object Detection (YOLO, R-CNN)",
-      "Image Segmentation",
-      "Facial Recognition",
-      "OCR & Document Processing",
-      "Video Analysis",
-      "Medical Image Analysis",
-      "Augmented Reality",
-      "3D Vision",
-    ],
-    projects: ["Real-time Object Detection", "Medical Image Classifier", "Document Scanner App"],
+    skills: ["YOLO", "OCR", "Image Segmentation", "OpenCV"]
   },
   {
     title: "MLOps & Production AI",
-    description:
-      "End-to-end machine learning operations, from model development to production deployment and monitoring.",
+    description: "Full model lifecycle from dev to scalable deployment.",
     icon: "⚙️",
-    skills: [
-      "Model Deployment",
-      "CI/CD for ML",
-      "Model Monitoring",
-      "A/B Testing",
-      "Feature Stores",
-      "Model Versioning",
-      "Containerization",
-      "Scalable Inference",
-    ],
-    projects: ["ML Pipeline Automation", "Model Performance Dashboard", "Scalable API Services"],
+    skills: ["CI/CD", "Deployment", "Monitoring", "Containerization"]
   },
   {
     title: "Data Science & Analytics",
-    description: "Comprehensive data science expertise from exploratory analysis to predictive modeling and insights.",
+    description: "Predictive modeling, EDA, visualization, and insights.",
     icon: "📊",
-    skills: [
-      "Statistical Analysis",
-      "Data Visualization",
-      "Predictive Modeling",
-      "Time Series Analysis",
-      "A/B Testing",
-      "Feature Engineering",
-      "Data Mining",
-      "Business Intelligence",
-    ],
-    projects: ["Customer Churn Prediction", "Sales Forecasting Model", "Market Analysis Dashboard"],
+    skills: ["EDA", "BI", "Forecasting", "Feature Engineering"]
   },
   {
     title: "Cloud AI & Edge Computing",
-    description:
-      "Deploying AI solutions across cloud platforms and edge devices for optimal performance and scalability.",
+    description: "Deploying and optimizing AI on cloud and edge.",
     icon: "☁️",
-    skills: [
-      "AWS SageMaker",
-      "Google Vertex AI",
-      "Azure ML Studio",
-      "Edge AI Deployment",
-      "Model Optimization",
-      "Serverless ML",
-      "Real-time Inference",
-      "Cost Optimization",
-    ],
-    projects: ["Serverless ML API", "Edge AI Camera System", "Multi-Cloud Deployment"],
-  },
+    skills: ["SageMaker", "Vertex AI", "Serverless", "Inference"]
+  }
 ]
 
 export function Specializations() {
+  const carouselRef = useRef<HTMLDivElement>(null)
+
+  const scrollLeft = () => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollBy({ left: -400, behavior: "smooth" })
+    }
+  }
+
+  const scrollRight = () => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollBy({ left: 400, behavior: "smooth" })
+    }
+  }
+
   return (
     <section id="specializations" className="py-20 bg-muted/30">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-foreground mb-4">Specializations</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Deep expertise across cutting-edge AI domains, from Large Language Models to Agentic AI systems and
-            traditional machine learning.
-          </p>
+        <div className="flex justify-between items-center mb-10">
+          <div>
+            <h2 className="text-3xl font-bold text-foreground mb-2">Specializations</h2>
+            <p className="text-muted-foreground text-lg">
+              Core areas of expertise across AI, deep learning, and intelligent systems.
+            </p>
+          </div>
+
+          <div className="flex gap-2">
+            <Button variant="outline" size="icon" onClick={scrollLeft}>
+              <ChevronLeft className="h-5 w-5" />
+            </Button>
+            <Button variant="outline" size="icon" onClick={scrollRight}>
+              <ChevronRight className="h-5 w-5" />
+            </Button>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div
+          ref={carouselRef}
+          className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory
+                     scrollbar-hide pb-4"
+        >
           {specializations.map((spec, index) => (
-            <Card key={index} className="hover:shadow-lg transition-all duration-300 border-border/50 group">
+            <Card
+              key={index}
+              className="min-w-[280px] max-w-[280px] snap-start hover:shadow-lg transition-all border-border/50"
+            >
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
                   <span className="text-3xl">{spec.icon}</span>
-                  <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors">
-                    {spec.title}
-                  </CardTitle>
+                  <CardTitle className="text-xl text-foreground">{spec.title}</CardTitle>
                 </div>
                 <CardDescription className="text-muted-foreground">{spec.description}</CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <h4 className="font-semibold text-foreground mb-2">Core Skills</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {spec.skills.map((skill, skillIndex) => (
-                      <Badge key={skillIndex} variant="outline" className="text-xs">
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="font-semibold text-foreground mb-2">Key Projects</h4>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    {spec.projects.map((project, projectIndex) => (
-                      <li key={projectIndex} className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 bg-primary rounded-full"></span>
-                        {project}
-                      </li>
-                    ))}
-                  </ul>
+              <CardContent>
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {spec.skills.map((skill, skillIndex) => (
+                    <Badge key={skillIndex} variant="outline" className="text-xs">
+                      {skill}
+                    </Badge>
+                  ))}
                 </div>
               </CardContent>
             </Card>

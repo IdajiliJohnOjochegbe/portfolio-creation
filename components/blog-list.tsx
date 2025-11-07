@@ -6,6 +6,16 @@ import Link from "next/link"
 
 const blogPosts = [
   {
+    slug: "detecting-ai-generated-faces",
+    title: "Detecting AI-Generated Faces: A Comprehensive Approach to Digital Authenticity",
+    excerpt:
+      "A comprehensive research publication on AI face detection achieving 84% accuracy, with methodology, results, and practical applications for digital security.",
+    date: "2025-02-15",
+    readTime: "18 min read",
+    tags: ["Computer Vision", "Deep Learning", "AI Detection", "Research"],
+    author: "John Ojochegbe",
+  },
+  {
     slug: "future-of-llms-2024",
     title: "The Future of Large Language Models: Trends and Predictions for 2024",
     excerpt:

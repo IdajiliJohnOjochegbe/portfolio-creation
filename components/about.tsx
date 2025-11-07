@@ -40,37 +40,34 @@ const BookOpenIcon = () => (
   </svg>
 )
 
-const AwardIcon = () => (
-  <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-    />
-  </svg>
-)
-
 const skills = [
   {
     icon: BrainIcon,
     title: "LLMs & Agentic AI",
-    description: "Developing autonomous agents powered by Large Language Models for reasoning, planning, and execution",
+    description:
+      "Building intelligent agents powered by Large Language Models for reasoning, planning, and execution.",
+    tools: ["GPT-4", "Claude", "Llama", "Fine-tuning", "RAG", "Vector DBs"],
   },
   {
     icon: EyeIcon,
     title: "Computer Vision & Multimodal AI",
-    description: "Object detection, recognition, and integrating vision with language for multimodal tasks",
+    description:
+      "Developing vision systems for object detection, recognition, and integrating language, image, and video.",
+    tools: ["PyTorch", "TensorFlow", "OpenCV", "YOLO", "Image Processing"],
   },
   {
     icon: CodeIcon,
     title: "Production AI Systems",
-    description: "Deploying scalable ML models with cloud platforms, MLOps, and modern frameworks",
+    description:
+      "Deploying scalable ML models with cloud platforms, MLOps, and modern frameworks for real-world impact.",
+    tools: ["AWS", "GCP", "Azure", "Docker", "Kubernetes", "MLOps"],
   },
   {
     icon: BookOpenIcon,
     title: "Research & Innovation",
-    description: "AI research experience in healthcare, assistive technologies, and emerging AI paradigms",
+    description:
+      "AI research experience in healthcare, assistive technologies, and emerging AI paradigms.",
+    tools: ["Experimentation", "Prototyping", "Scientific Papers"],
   },
 ]
 
@@ -78,93 +75,44 @@ export function About() {
   return (
     <section id="about" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
+        {/* Intro */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">About Me</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
-            Machine Learning Engineer and Computer Engineering graduate from the University of Ilorin, specializing in
-            Large Language Models, Computer Vision, and production-scale AI systems. I'm passionate about connecting
-            research with real-world impact across healthcare, technology, and emerging applications, while also
-            mentoring peers and contributing to AI education initiatives.
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Machine Learning Engineer and Computer Engineering graduate from the University of Ilorin. 
+            I specialize in Large Language Models, Computer Vision, and production-scale AI systems. 
+            Passionate about connecting research with real-world applications across healthcare, technology, and education.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-4xl mx-auto">
+        {/* Skills */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {skills.map((skill, index) => (
-            <Card key={index} className="p-8 text-center hover:shadow-lg transition-shadow h-full flex flex-col">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6">
-                {skill.icon()}
+            <Card
+              key={index}
+              className="p-8 hover:shadow-lg transition-shadow h-full flex flex-col justify-between"
+            >
+              <div className="flex flex-col items-center text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6">
+                  {skill.icon()}
+                </div>
+                <h3 className="text-xl font-semibold mb-4">{skill.title}</h3>
+                <p className="text-muted-foreground mb-6">{skill.description}</p>
               </div>
-              <h3 className="text-xl font-semibold mb-4">{skill.title}</h3>
-              <p className="text-muted-foreground text-pretty flex-grow">{skill.description}</p>
+
+              {/* Tool bubbles */}
+              <div className="flex flex-wrap gap-2 justify-center">
+                {skill.tools.map((tool) => (
+                  <span
+                    key={tool}
+                    className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
             </Card>
           ))}
-        </div>
-
-        <div className="bg-card rounded-2xl p-8 md:p-12">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-2xl font-bold mb-6">Core Focus Areas</h3>
-              <div className="space-y-4">
-                <div>
-                  <h4 className="font-semibold text-primary mb-2">• LLMs & Agentic AI</h4>
-                  <p className="text-muted-foreground text-sm leading-relaxed ml-4">
-                    Developing autonomous agents powered by Large Language Models for reasoning, planning, and
-                    execution.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-primary mb-2">• Computer Vision & Multimodal AI</h4>
-                  <p className="text-muted-foreground text-sm leading-relaxed ml-4">
-                    Object detection, recognition, and integrating vision with language for multimodal tasks.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-primary mb-2">• Production AI Systems</h4>
-                  <p className="text-muted-foreground text-sm leading-relaxed ml-4">
-                    Deploying scalable ML models with cloud platforms, MLOps, and modern frameworks.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-primary mb-2">• Research & Innovation</h4>
-                  <p className="text-muted-foreground text-sm leading-relaxed ml-4">
-                    AI research experience in healthcare, assistive technologies, and emerging AI paradigms.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="space-y-6">
-              <div>
-                <h4 className="font-semibold mb-2">LLMs & Generative AI</h4>
-                <div className="flex flex-wrap gap-2">
-                  {["GPT-4", "Claude", "Llama", "Fine-tuning", "RAG", "Vector DBs"].map((tech) => (
-                    <span key={tech} className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-2">Computer Vision & ML</h4>
-                <div className="flex flex-wrap gap-2">
-                  {["OpenCV", "PyTorch", "TensorFlow", "YOLO", "Object Detection", "Image Processing"].map((tech) => (
-                    <span key={tech} className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-2">Cloud & Production</h4>
-                <div className="flex flex-wrap gap-2">
-                  {["AWS", "GCP", "Azure", "Docker", "Kubernetes", "MLOps"].map((tech) => (
-                    <span key={tech} className="px-3 py-1 bg-chart-2/10 text-chart-2 rounded-full text-sm">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

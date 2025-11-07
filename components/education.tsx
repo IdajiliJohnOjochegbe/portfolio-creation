@@ -30,11 +30,11 @@ export function Education() {
       degree: "Bachelor of Engineering in Computer Engineering",
       institution: "University of Ilorin",
       location: "Ilorin, Nigeria",
-      period: "2018 - 2023",
-      gpa: "4.2/5.0",
+      period: "2019 - 2025",
+      gpa: "78%",
       achievements: [
-        "First Class Honours",
-        "Dean's List (Multiple Semesters)",
+        "Undergraduate NNPC scholarship",
+        "Exceptional Leadership Award",
         "Outstanding Academic Performance Award",
       ],
       relevantCourses: [
