@@ -4,6 +4,44 @@ import { notFound } from "next/navigation"
 
 const blogPosts = [
   {
+    slug: "detecting-ai-generated-faces",
+    title: "Detecting AI-Generated Faces: A Comprehensive Approach to Digital Authenticity",
+    content: `
+# Detecting AI-Generated Faces: A Comprehensive Approach to Digital Authenticity
+
+**Idajili John Ojochegbe**  
+University of Ilorin – Computer Engineering – Nigeria
+
+## Abstract
+
+This paper presents a comprehensive end-to-end approach to detecting AI-generated faces using advanced machine learning techniques, feature engineering, and deep learning. With the emergence of generative adversarial networks (GANs) and diffusion models capable of creating hyper-realistic synthetic faces, automated detection has become critical for digital security and media integrity. Our model achieves **84% accuracy** across diverse test images through a hybrid feature approach combining statistical analysis, structural features via edge detection and HOG (Histogram of Oriented Gradients), and deep learning embeddings from pre-trained MobileNet. This research demonstrates practical applications in media forensics, identity verification, and online moderation.
+
+---
+
+## 1. Introduction
+
+The rapid advancement of artificial intelligence, particularly through Generative Adversarial Networks (GANs) (Goodfellow et al., 2014; Karras, Laine, & Aila, 2019), has enabled the creation of synthetic human faces that are increasingly indistinguishable from real photographs. While these innovations have driven significant progress in computer vision and digital creativity, they present serious risks—from misinformation and identity fraud to deepfakes and synthetic media manipulation.
+
+According to Miller (2023), AI-generated faces are often perceived as more credible than actual human faces, underscoring the urgent need for reliable automated detection systems. This research addresses this critical need through a systematic, end-to-end framework combining handcrafted features with deep learning approaches.
+
+![Real vs AI-Generated Faces](/ai-generated-vs-real-faces-comparison.jpg)
+*Figure 1: Comparison of authentic faces (left) and AI-generated faces (right) showing key visual differences in texture, symmetry, and color patterns.*
+
+### 1.1 Motivation and Significance
+
+- **Media Forensics**: Detecting synthetic identities and preventing misinformation
+- **Identity Verification**: Strengthening digital authentication systems
+- **Online Moderation**: Identifying fake accounts and AI-generated avatars
+- **Government Systems**: Securing passport, national ID, and credential verification
+    `,
+    excerpt:
+      "A comprehensive research publication on AI face detection achieving 84% accuracy, with methodology, results, and practical applications for digital security.",
+    date: "2025-02-15",
+    readTime: "18 min read",
+    tags: ["Computer Vision", "Deep Learning", "AI Detection", "Research", "Security"],
+    author: "John Ojochegbe",
+  },
+  {
     slug: "future-of-llms-2024",
     title: "The Future of Large Language Models: Trends and Predictions for 2024",
     content: `
